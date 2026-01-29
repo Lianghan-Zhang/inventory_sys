@@ -26,4 +26,4 @@ dist-ssr
 # AI tools
 .agents
 .claude
-.codex
+.codex.worktrees
