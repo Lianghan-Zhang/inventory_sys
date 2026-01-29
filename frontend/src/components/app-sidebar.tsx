@@ -68,15 +68,10 @@ function NavButton({ item, isActive, onClick }: { item: NavItem; isActive: boole
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const navigate = useNavigate()
   const location = useLocation()
-  const [activeItem, setActiveItem] = React.useState("/dashboard")
-
-  React.useEffect(() => {
-    setActiveItem(location.pathname)
-  }, [location.pathname])
+  const activeItem = location.pathname
 
   const handleNavClick = (url: string) => {
-    setActiveItem(url)
-    if (url.startsWith("/")) {
+    if (url.startsWith("/") && url !== location.pathname) {
       navigate(url)
     }
   }
